@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Entrada{
     public static void main(String[] args) {
         try {
@@ -18,6 +19,7 @@ public class Entrada{
             System.out.println(result);
             if (result != 0) {
                 System.out.println("Entrada permitida!");
+                System.out.println(result_par + " par");
             } else {
                 result_par = true;
                 System.out.println(result_par + "\nIdade par, entrada nao permitida!");
