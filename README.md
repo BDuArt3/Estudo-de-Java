@@ -1,0 +1,1 @@
+Pasta de estudo de Java realizado com assistencia de Claude Code criando trilhas de aprendizado, focando em intercalar entre teoria e prática.
