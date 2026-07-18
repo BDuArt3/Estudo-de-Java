@@ -12,7 +12,7 @@ public class Main {
         int opcao = 999;
 
         do { 
-            System.out.println("Digite qual opcao voce quer:");
+            System.out.println("Digite a opcao:");
             System.out.println("1 - Cadastrar aluno.");
             System.out.println("2 - Calcular media de um aluno.");
             opcao = sc.nextInt();
@@ -22,7 +22,15 @@ public class Main {
             } 
             if (opcao ==2 ){
                 double media = CalcularMediaAluno(alunos, sc);    
-                System.out.println(media);
+                if (!Double.isNaN(media)){
+                    System.out.println("A media deste aluno e: " + media);
+                    if (media >= 6.0){
+                        System.out.println("O aluno foi aprovado.");
+                    } else{
+                        System.out.println("O aluno foi reprovado.");
+                    }
+                }
+
             }
             
         } while (opcao != 0);
@@ -32,15 +40,20 @@ public class Main {
 
 
     }
+    public static void CalcularMediaTodosAlunos(Aluno[] alunos, Scanner sc){
+        
+    }
+
     public static double CalcularMediaAluno(Aluno[] alunos, Scanner sc){
-        int i = 0;
+        
         System.out.println("Listando alunos cadastrados, selecione o numero respectivo ao aluno que a media deve ser calculada.");
         
-        for (Aluno aluno : alunos){
-            System.out.println(i + 1 + " - " + aluno.getNome());
-            i += 1;
+        for (int i = 0; i < alunos.length; i++){
+            if (alunos[i] != null){
+                System.out.println(i + 1 + " - " + alunos[i].getNome());
+            }
         }
-
+       
         int alunoSelecionado = sc.nextInt();
         double media = alunos[alunoSelecionado - 1].calcularMedia();
         return media;
