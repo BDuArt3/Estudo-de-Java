@@ -9,15 +9,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Aluno[] alunos = new Aluno[2];
         int totalCadastros = 0;
-        int opcao = 999;
+        int opcao;
 
         do { 
             System.out.println("Digite a opcao:");
             System.out.println("1 - Cadastrar aluno.");
             System.out.println("2 - Calcular media de um aluno.");
             System.out.println("3 - Calcular media de todos os alunos.");
+            System.out.println("4- Exibir aluno com maior media");
             opcao = sc.nextInt();
-            
+            sc.nextLine();
             if (opcao == 1){
                 totalCadastros = CadastrarAluno(alunos, totalCadastros, sc);
             } 
@@ -33,17 +34,39 @@ public class Main {
                 }
             }
             if (opcao == 3){
-                CalcularMediaTodosAlunos(alunos, sc);
+                CalcularMediaTodosAlunos(alunos);
+            }
+            if (opcao == 4){
+                ExibirAlunoComMaiorMedia(alunos);
             }
             
         } while (opcao != 0);
 
-        
-
-
-
     }
-    public static void CalcularMediaTodosAlunos(Aluno[] alunos, Scanner sc){
+
+    public static void AlunoMaiorMedia (Aluno[] alunos){
+        for (Aluno aluno : alunos){
+
+        }
+    }
+
+    public static void ExibirAlunoComMaiorMedia(Aluno[] alunos) {
+        int maiorAluno = 0;
+        double maiorMedia = 0;
+        for (int i = 0; i < alunos.length; i++) {
+            if (alunos[i] != null){
+                double media = alunos[i].calcularMedia();
+                if (media > maiorMedia){
+                    maiorMedia = media;
+                    maiorAluno = i;
+                }
+            } 
+        }
+
+        System.out.println(alunos[maiorAluno].getNome() + ": " + maiorMedia);
+    }
+
+    public static void CalcularMediaTodosAlunos(Aluno[] alunos){
         for (Aluno aluno : alunos) {
             if (aluno != null){
                 System.out.println("Aluno: " + aluno.getNome() + " | " + aluno.calcularMedia());
