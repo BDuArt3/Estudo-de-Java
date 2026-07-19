@@ -106,7 +106,6 @@ public class Main {
         }
 
         System.out.println("Digite o nome do aluno");
-        sc.nextLine();
         String nome = sc.nextLine();
         
         System.out.println("Digite a nota 1");
