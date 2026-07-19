@@ -85,7 +85,7 @@ public class Main {
     }
 
     public static double CalcularMediaAluno(Aluno[] alunos, Scanner sc){
-        
+        sc.nextLine();
         System.out.println("Listando alunos cadastrados, selecione o numero respectivo ao aluno que a media deve ser calculada.");
         
         for (int i = 0; i < alunos.length; i++){
